@@ -6,6 +6,7 @@ class Agent(models.Model):
     email = models.EmailField(unique=True)
     password = models.CharField(max_length=255)
     is_available = models.BooleanField(default=False)
+    last_assigned=models.DateTimeField(null=True, blank=True)
 
     def set_password(self, raw_password):
         self.password = make_password(raw_password)

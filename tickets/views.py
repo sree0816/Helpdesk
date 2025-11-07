@@ -94,12 +94,12 @@ def create_ticket(request):
                 fail_silently=False,
             )
 
-        return render(request, 'tickets/createsuccess.html', {
+        return render(request, 'createsuccess.html', {
             'ticket': ticket,
             'assigned_agent': available_agent
         })
 
-    return render(request, 'tickets/createticket.html')
+    return render(request, 'createticket.html')
 
 
 def createsuccess(request):
