@@ -64,3 +64,13 @@ def upadte_ticket(request,tid):
         ticket.save()
         return redirect(agent_dashboard)
     return render(request,'update_ticket.html',{'ticket':ticket})
+
+def logout_agent(request):
+    agent_id = request.session.get('agent_id')
+    if agent_id:
+        agent = Agent.objects.get(id=agent_id)
+        agent.is_available = False
+        agent.save()
+        del request.session['agent_id']
+
+    return redirect('login_agent')

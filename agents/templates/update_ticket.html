@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Ticket</title>
+</head>
+<body>
+  <h2>Update Ticket Status</h2>
+  <p>Title: {{ ticket.title }}</p>
+  <p>Description: {{ ticket.description }}</p>
+  <p>Priority: {{ ticket.priority }}</p>
+  <p>Status: {{ ticket.status }}</p>
+
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Mark as Closed</button>
+  </form>
+
+  <a href="{% url 'agent_dashboard' %}">Back to Dashboard</a>
+</body>
+</html>
